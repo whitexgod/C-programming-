@@ -1,0 +1,43 @@
+#include<stdio.h>
+main()
+{
+	int i,j,k,n,end_no,start_no,temp,carry,eleminate;	
+	scanf("%d",&n);
+	end_no=(n*n)+n;
+	start_no=1;
+	temp=n;
+	carry=0;
+	eleminate=temp-1;
+	for(i=0;i<n;i++)
+	{
+		for(k=0;k<i;k++)
+		{
+			printf("  ");
+		}
+		for(j=i*2;j<n*2;j++)
+		{
+			if (j<((i*2)+temp))
+			{
+				printf("%d*",start_no);
+				start_no=start_no+1;
+			}
+			else
+			{
+				if(j==((n*2)-1))
+				{
+					printf("%d",end_no-eleminate);
+					eleminate=eleminate-1;
+				}
+				else
+				{
+					printf("%d*",end_no-eleminate);
+					eleminate=eleminate-1;
+				}
+			}
+		}
+		carry=carry+temp;
+		temp=temp-1;
+		eleminate=carry+temp-1;
+		printf("\n");
+	}
+}
